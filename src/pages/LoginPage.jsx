@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { useAuth } from "../provider/AuthProvider";
 import { useNavigate } from "react-router-dom";
-import { AiOutlineClose } from "react-icons/ai";
-import { RiEyeFill, RiEyeOffFill } from "react-icons/ri";
+import {
+  AiOutlineClose,
+  AiOutlineEye,
+  AiOutlineEyeInvisible,
+} from "react-icons/ai";
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -23,7 +26,7 @@ const LoginPage = () => {
     }
   };
   const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword); 
+    setShowPassword(!showPassword);
   };
   return (
     <div className="flex justify-center items-center h-screen bg-slate-200 px-3">
@@ -54,7 +57,7 @@ const LoginPage = () => {
             Username
           </label>
           <input
-          placeholder="Type username"
+            placeholder="Type username"
             type="text"
             id="username"
             value={username}
@@ -72,7 +75,7 @@ const LoginPage = () => {
           </label>
           <div className="relative">
             <input
-            placeholder="Type password"
+              placeholder="Type password"
               type={showPassword ? "text" : "password"}
               id="password"
               value={password}
@@ -85,7 +88,7 @@ const LoginPage = () => {
               className="absolute inset-y-0 right-0 pr-3 flex items-center"
               onClick={togglePasswordVisibility}
             >
-              {showPassword ? <RiEyeOffFill /> : <RiEyeFill />}
+              {showPassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
             </button>
           </div>
         </div>

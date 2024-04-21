@@ -11,7 +11,7 @@ const ProductCard = ({ product }) => {
           className="w-full h-64 object-cover"
         />
         <div className="absolute top-0 right-0 bg-gray-800 text-white px-2 py-1 m-2 rounded-bl-lg">
-          ${product?.price}
+          {product?.price} ৳
         </div>
       </div>
       <div className="p-4">

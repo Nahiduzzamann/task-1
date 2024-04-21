@@ -4,7 +4,7 @@ import { useAuth } from "../provider/AuthProvider";
 export default function NavBar({  handleShowSideNav }) {
   const { logout } = useAuth();
   return (
-    <div className="bg-gray-800 h-12 px-4 flex justify-between items-center fixed w-screen z-10">
+    <div className="bg-gray-800 h-14 px-4 md:px-10 flex justify-between items-center fixed w-screen z-10">
       <div>
         <AiOutlineMenu onClick={handleShowSideNav} className="text-[20px] text-white cursor-pointer hover:scale-110 duration-300 border rounded  block md:hidden" />
       </div>
