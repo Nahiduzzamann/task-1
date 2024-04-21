@@ -1,9 +1,11 @@
+import { Link } from "react-router-dom";
 import { useAuth } from "../provider/AuthProvider";
 
 const ProductCard = ({ product }) => {
   const { user } = useAuth();
   return (
-    <div className="bg-white shadow-md rounded-lg overflow-hidden">
+    <Link to='/product/product-details'>
+    <div className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg">
       <div className="relative">
         <img
           src={product?.image}
@@ -29,7 +31,7 @@ const ProductCard = ({ product }) => {
           </div>
         )}
       </div>
-    </div>
+    </div></Link>
   );
 };
 export default ProductCard;

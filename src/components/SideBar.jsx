@@ -48,6 +48,7 @@ export default function SideBar({ showSideNav, handleShowSideNav }) {
               Profile
             </Link>
           </li>
+          {/* if admin login then show this link  */}
           {user?.username === "admin" && (
             <li>
               <Link

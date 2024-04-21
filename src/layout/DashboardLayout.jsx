@@ -7,6 +7,8 @@ import { useState } from "react";
 const DashboardLayout = () => {
   const { user } = useAuth();
   const [showSideNav, setShowSideNav] = useState(false);
+
+  // functionality for show and hide side bar 
   const handleShowSideNav = () => {
     setShowSideNav(!showSideNav);
   };
@@ -19,6 +21,7 @@ const DashboardLayout = () => {
             showSideNav={showSideNav}
             handleShowSideNav={handleShowSideNav}
           ></SideBar>
+          {/* nav bar */}
           <NavBar
             handleShowSideNav={handleShowSideNav}
           ></NavBar>

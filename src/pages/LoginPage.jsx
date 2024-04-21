@@ -9,12 +9,16 @@ import {
 
 const LoginPage = () => {
   const navigate = useNavigate();
+  // state for after login where to redirect 
   const from = location.state?.from?.pathname || "/";
+
   const { login } = useAuth();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+
+  // handle login functionality 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
@@ -25,6 +29,8 @@ const LoginPage = () => {
       setError("Invalid username or password. Please try again.");
     }
   };
+
+  // show password and hide password functionality
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
@@ -88,7 +94,7 @@ const LoginPage = () => {
               className="absolute inset-y-0 right-0 pr-3 flex items-center"
               onClick={togglePasswordVisibility}
             >
-              {showPassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
+              {showPassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />} {/*show password and hide password icon*/}
             </button>
           </div>
         </div>
