@@ -1,3 +1,4 @@
+// dummy data 
 export const products = [
   {
     id: 1,

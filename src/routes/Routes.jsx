@@ -7,7 +7,7 @@ import Home from "../pages/Home";
 import Profile from "../pages/Profile";
 import UserList from "../pages/UserList";
 import ProductDetails from "../pages/ProductDetails";
-
+// all routes 
 export const router = createBrowserRouter([
     {
       path: "/",

@@ -7,6 +7,7 @@ import { router } from "./routes/Routes";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
+    {/* provider  */}
     <AuthProvider>
       <div className="bg-slate-100">
         <RouterProvider router={router} />
