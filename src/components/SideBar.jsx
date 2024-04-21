@@ -4,7 +4,7 @@ import { useAuth } from "../provider/AuthProvider";
 export default function SideBar() {
   const { user} = useAuth();
   return (
-    <div className="bg-gray-800 text-white w-64 flex flex-col">
+    <div className="bg-gray-800 text-white w-64 flex flex-col fixed h-screen z-10">
       <div className="p-4 border-b">
         <h1 className="text-2xl font-bold">Dashboard</h1>
         <p className="text-sm mt-1">Welcome, {user?.username}</p>
