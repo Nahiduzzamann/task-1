@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useAuth } from "../provider/AuthProvider";
 import { useNavigate } from "react-router-dom";
+import { AiOutlineClose } from "react-icons/ai";
+import { RiEyeFill, RiEyeOffFill } from "react-icons/ri";
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -9,6 +11,7 @@ const LoginPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
@@ -19,26 +22,27 @@ const LoginPage = () => {
       setError("Invalid username or password. Please try again.");
     }
   };
-
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword); 
+  };
   return (
-    <div className="flex justify-center items-center h-screen">
-      <form onSubmit={handleSubmit} className="w-full max-w-sm">
+    <div className="flex justify-center items-center h-screen bg-slate-200 px-3">
+      <form
+        onSubmit={handleSubmit}
+        className="w-full max-w-xl bg-slate-300 p-4 rounded-xl shadow-lg"
+      >
+        <h1 className="text-center text-lg md:text-2xl font-medium">Log In</h1>
         {error && (
           <div
-            className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
+            className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative my-2"
             role="alert"
           >
             <span className="block sm:inline">{error}</span>
-            <span className="absolute top-0 bottom-0 right-0 px-4 py-3">
-              <svg
-                className="fill-current h-6 w-6 text-red-500"
-                role="button"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-              >
-                <title>Close</title>
-                <path d="M14.348 14.849c.451-.451.451-1.181 0-1.632l-1.061-1.06c-.451-.451-1.181-.451-1.632 0l-1.061 1.06c-.451.451-.451 1.181 0 1.632l-1.061 1.061c-.451.451-.451 1.181 0 1.632.451.451 1.181.451 1.632 0l1.061-1.061c.451-.451.451-1.181 0-1.632l1.061-1.061c.451-.451.451-1.181 0-1.632-.451-.451-1.181-.451-1.632 0l-1.061 1.061c-.451.451-.451 1.181 0 1.632l-1.061 1.061c-.451.451-.451 1.181 0 1.632.451.451 1.181.451 1.632 0l1.061-1.061c.451-.451.451-1.181 0-1.632l1.061-1.061c.451-.451.451-1.181 0-1.632-.451-.451-1.18-.451-1.631 0l-1.06 1.061c-.452.451-.452 1.181 0 1.632l1.06 1.061c.451.451 1.18.451 1.631 0z" />
-              </svg>
+            <span
+              onClick={() => setError("")}
+              className="absolute top-0 bottom-0 right-0 px-4 py-3 font-medium cursor-pointer"
+            >
+              <AiOutlineClose className="text-[20px] cursor-pointer hover:scale-110 duration-300 " />
             </span>
           </div>
         )}
@@ -50,6 +54,7 @@ const LoginPage = () => {
             Username
           </label>
           <input
+          placeholder="Type username"
             type="text"
             id="username"
             value={username}
@@ -65,19 +70,29 @@ const LoginPage = () => {
           >
             Password
           </label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            required
-          />
+          <div className="relative">
+            <input
+            placeholder="Type password"
+              type={showPassword ? "text" : "password"}
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              required
+            />
+            <button
+              type="button"
+              className="absolute inset-y-0 right-0 pr-3 flex items-center"
+              onClick={togglePasswordVisibility}
+            >
+              {showPassword ? <RiEyeOffFill /> : <RiEyeFill />}
+            </button>
+          </div>
         </div>
         <div className="flex items-center justify-between">
           <button
             type="submit"
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            className="bg-gray-500 hover:bg-gray-700 text-white shadow-md md:font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
           >
             Sign In
           </button>

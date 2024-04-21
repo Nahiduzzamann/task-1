@@ -7,8 +7,8 @@ const AuthProvider = ({ children }) => {
   const login = (username, password) => {
     //let's assume username and password
     const users = {
-      user: { username: "user", password: "password" },
-      admin: { username: "admin", password: "adminpassword" },
+      user: { username: "user", password: "1111" },
+      admin: { username: "admin", password: "2222" },
     };
 
     const authUser = users[username];
