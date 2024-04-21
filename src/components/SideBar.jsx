@@ -8,9 +8,9 @@ export default function SideBar({ showSideNav, handleShowSideNav }) {
     <div
       className={`bg-gray-800 text-white ${
         showSideNav ? " w-48" : "w-0"
-      } overflow-hidden md:w-48 lg:w-64 flex flex-col fixed h-screen z-10 transition-width duration-300 `}
+      } overflow-hidden md:w-48 lg:w-64 flex flex-col fixed h-screen z-20 transition-width duration-300 `}
     >
-      <div className="p-2 lg:p-4 border-b flex justify-between items-center">
+      <div className="p-2 lg:p-4 border-b flex justify-between items-center w-48 lg:w-64">
         <div className="">
           <h1 className="text-xl lg:text-2xl font-bold">Dashboard</h1>
           <p className="text-sm mt-1">Welcome, {user?.username}</p>
@@ -20,7 +20,7 @@ export default function SideBar({ showSideNav, handleShowSideNav }) {
           className="text-[20px] cursor-pointer hover:scale-110 duration-300 border rounded block md:hidden"
         />
       </div>
-      <nav className="flex-1 mt-4">
+      <nav className="flex-1 mt-4 w-48 lg:w-64">
         <ul>
           <li>
             <Link

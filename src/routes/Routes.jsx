@@ -1,8 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import DashboardLayout from "../layout/DashboardLayout";
 import LoginPage from "../pages/LoginPage";
-import Home from "../pages/Home";
 import PrivateRoute from "./PrivateRoute";
+import ProductPage from "../pages/ProductPage";
 
 export const router = createBrowserRouter([
     {
@@ -12,7 +12,7 @@ export const router = createBrowserRouter([
       children: [
         {
           path: "/",
-          element: <PrivateRoute><Home></Home></PrivateRoute>,
+          element: <PrivateRoute><ProductPage></ProductPage></PrivateRoute>,
         },
         {
           path: "/login",
