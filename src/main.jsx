@@ -9,7 +9,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     {/* provider  */}
     <AuthProvider>
-      <div className="bg-slate-100">
+      <div className="">
         <RouterProvider router={router} />
       </div>
     </AuthProvider>
